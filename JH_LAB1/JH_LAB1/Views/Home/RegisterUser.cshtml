@@ -1,0 +1,44 @@
+﻿@model IEnumerable<User> 
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Register User";
+}
+
+<h1>Welcome to Registration Page</h1>
+<form method="post" asp-action="RegisterUser">
+    <div asp-validation-summary="All"></div>
+    <div>
+        @if (ViewBag.existingEmail != null)
+        {
+            @ViewBag.existingEmail
+            <a asp-action="Login">Login</a>
+        }
+    </div>
+    <div class="form-group">
+        <label for="FirstName">First Name </label>
+        <input class="form-control" name="FirstName" />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Last Name </label>
+        <input class="form-control" name="LastName" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email </label>
+        <input class="form-control" name="Email" />
+    </div>
+
+    <div class="form-group">
+        <label for="Phone">Phone </label>
+        <input class="form-control" name="Phone" />
+    </div>
+    <div class="form-group">
+        <label for="Password">Password </label>
+        <input class="form-control" name="Password" />
+    </div>
+    <div class="form-group">
+        <label for="ConfirmPassword">Confirm Password </label>
+        <input class="form-control" name="ConfirmPassword" />
+    </div>
+    <br />
+    <button class="btn btn-dark" type="submit">Submit</button>
+</form>

@@ -1,0 +1,45 @@
+﻿@model User
+@{ 
+    Layout = "_Layout"; 
+    ViewData["Title"] = "User By Id"; 
+}
+
+<h1>User By ID</h1>
+<a asp-action="index" class="btn btn-sm btn-primary">Back</a>
+<h2>@ViewBag.StatusCode</h2>
+
+<form method="post" asp-action="GetUserID">
+    <div class="form-group">
+        <label for="UserId">User ID: </label>
+        <input class="form-control" name="UserId" />
+    </div>
+    <br />
+    <button class="btn btn-dark" type="submit">Search</button>
+
+</form>
+
+@if(Model != null){
+    <h1>Details for @Model.UserId user</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Password</th>
+                <th>ConfirmPassword</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Model.UserId</td>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+            <td>@Model.Email</td>
+            <td>@Model.Phone</td>
+            <td>@Model.Password</td>
+            <td>@Model.ConfirmPassword</td>
+        </tr>
+    </table>
+}

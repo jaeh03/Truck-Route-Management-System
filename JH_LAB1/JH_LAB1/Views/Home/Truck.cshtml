@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Truck>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Trucks";
+}
+@if (Model != null && Model.Count() > 0)
+{
+    <h1>Trucks</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Truck Number</th>
+                <th>Model</th>
+                <th>Make</th>
+                <th>Route Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Truck_ID</td>
+                    <td>@item.t_model</td>
+                    <td>@item.t_make</td>
+                    <td>@item.RouteID</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+}
+<h1>Add Truck</h1>
+<form method="post" asp-action="Truck">
+    <div class="form-group">
+        <label for="t_model">Model: </label>
+        <input class="form-control" name="t_model" />
+    </div>
+    <div class="form-group">
+        <label for="t_make">Make: </label>
+        <input class="form-control" name="t_make" />
+    </div>
+
+    <div class="form-group">
+        <label for="RouteID">Route Number: </label>
+        <input class="form-control" name="RouteID" />
+    </div>
+    <br />
+    <button class="btn btn-dark" type="submit">Submit</button>
+</form>

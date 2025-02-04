@@ -1,0 +1,64 @@
+﻿@model User
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Dashboard"; 
+}
+
+<h1>Dashboard</h1>
+<h2>Hello @Model.FirstName @Model.LastName (@Model.Email)</h2>
+
+<br />
+
+<a class="btn btn-dark" asp-action="Truck">Add Truck</a>
+<a class="btn btn-dark" asp-action="Route">Add Route</a>
+<a class="btn btn-dark" asp-action="TruckWorkshop">Add Work Order</a>
+<a class="btn btn-danger" asp-action="Login">Sign Out</a>
+
+
+<br /> 
+
+    <h2>Trucks</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Truck Number</th>
+                <th>Model</th>
+                <th>Make</th>
+                <th>Route Number</th>
+            </tr>
+        </thead>
+    <tbody>
+
+           <tr>
+               <td>Truck_ID</td>
+               <td>t_model</td>
+               <td>t_make</td>
+               <td>RouteID</td>
+           </tr>
+        
+    </tbody> 
+    </table>
+
+<hr />
+
+    <h2>Routes</h2>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Route Number</th>
+                <th>Route Name</th>
+                <th>Route Length</th>
+                <th>Route Pay Per KM</th>
+            </tr>
+        </thead>
+        <tbody>
+
+                <tr>
+                    <td>RouteID</td>
+                    <td>route_name</td>
+                    <td>r_length</td>
+                    <td>r_pay_per_km</td>
+                </tr>
+
+        </tbody>
+    </table>

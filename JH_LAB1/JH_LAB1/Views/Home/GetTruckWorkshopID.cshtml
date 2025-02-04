@@ -1,0 +1,39 @@
+﻿@model Truck
+@{ 
+    Layout = "_Layout"; 
+    ViewData["Title"] = "Truck Workshop By Id"; 
+}
+
+<h1>Truck Workshop By ID</h1>
+<a asp-action="index" class="btn btn-sm btn-primary">Back</a>
+<h2>@ViewBag.StatusCode</h2>
+
+<form method="post" asp-action="GetTruckWorkshopID">
+    <div class="form-group">
+        <label for="TruckWorkshop_ID">Truck Workshop ID: </label>
+        <input class="form-control" name="TruckWorkshop_ID" />
+    </div>
+    <br />
+    <button class="btn btn-dark" type="submit">Search</button>
+
+</form>
+
+@if(Model != null){
+    <h1>Details for @Model.WorkOrderID Truck Workshop</h1>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Truck ID</th>
+                <th>Truck Model</th>
+                <th>Truck Make</th>
+                <th>Truck ID</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Model.WorkOrderID</td>
+            <td>@Model.workDescription</td>
+            <td>@Model.cost</td>
+            <td>@Model.Truck_ID</td>
+        </tr>
+    </table>
+}

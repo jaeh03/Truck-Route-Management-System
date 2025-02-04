@@ -1,0 +1,29 @@
+﻿@model IEnumerable<User>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<form method="post" asp-action="Index">
+    <div class="form-group">
+        <label for="Email">Email: </label>
+        <input name="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Password">Password: </label>
+        <input name="Password" class="form-control" />
+    </div>
+    <div class="form-group">
+        @if (ViewBag.incorrectLogin != null)
+        {
+            @ViewBag.incorrectLogin
+            <a asp-action="Login">Login</a>
+        }
+    </div>
+    <br />
+    <button class="btn btn-dark" type="submit">Submit</button>
+</form>
+<br />
+<a asp-action="RegisterUser" class="btn btn-dark">Sign Up</a> 
